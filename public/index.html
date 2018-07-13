@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>gsap test</title>
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+</head>
+<body>
+    <div class="hanabi">
+    <ul class="maru_wrap">
+    </ul>
+    </div>
+
+    <pre><code class="prettyprint linenums">
+        import $ from 'jquery';
+        import {TweenMax} from "gsap";
+        import {TimelineMax} from "gsap";
+
+        for(let i=0; i<100; i++){
+            let maru = `<li class='maru'></li>`
+            $('.maru_wrap').append(maru);
+        }
+
+
+        var Hanabi = new Object();//オブジェクト作成
+
+        Hanabi.color = function(){//プロパティ
+            var val1 = Math.floor(Math.random() * 256 );
+            var val2 = Math.floor(Math.random() * 256 );
+            var val3 = Math.floor(Math.random() * 256 );
+            $('.maru').css({
+                background:'rgb('+val1+','+val2+','+val3+')'
+            })
+        }
+        Hanabi.no1 = function (val) {//プロパティ
+            for(let i=0; i<25; i++){
+                var random = Math.floor(Math.random() * val );
+                var random2 = Math.floor(Math.random() * val );
+                TweenMax.to('.maru:nth-of-type('+i+')',2,{
+                    x:-random,
+                    y:random2
+                })}
+        }
+        Hanabi.no2 = function (val) {//プロパティ
+            for(let i=5; i<=50; i++){
+                var random = Math.floor(Math.random() * val );
+                var random2 = Math.floor(Math.random() * val );
+                TweenMax.to('.maru:nth-of-type('+i+')',2,{
+                    x:-random,
+                    y:-random2
+                })}
+        }
+        Hanabi.no3 = function (val) {//プロパティ
+            for(let i=0; i<75; i++){
+                var random = Math.floor(Math.random() * val );
+                var random2 = Math.floor(Math.random() * val );
+                TweenMax.to('.maru:nth-of-type('+i+')',2,{
+                    x:random,
+                    y:-random2
+                })}
+        }
+        Hanabi.no4 = function (val) {//プロパティ
+            for(let i=5; i<=100; i++){
+                var random = Math.floor(Math.random() * val );
+                var random2 = Math.floor(Math.random() * val );
+                TweenMax.to('.maru:nth-of-type('+i+')',2,{
+                    x:random,
+                    y:random2
+                })
+            }
+        }
+
+
+        var tl = new TimelineMax({repeat:-1});
+
+        tl.set('.maru',{//ループのときの初期設定
+            x:'50%',
+            y:0
+        })
+        .set(Hanabi,{//花火の色
+            color:true
+        })
+        .add('go')//同時の動きをさせるための関数
+        .to('.maru_wrap',1,{
+            y:-600,
+            ease: Power3.easeOut,
+        },'go')
+        .to('.maru_wrap',0.3,{
+            opacity: 0
+        },'go+=0.4')
+        .to('.maru_wrap',0,{
+            opacity: 1
+        },'go+=1')
+        .to(Hanabi,0,{//花火散る
+            no1:400,
+            no2:-400,
+            no3:400,
+            no4:-400,
+        })
+        .to('.maru',1,{//花火消える
+            opacity:0
+        },'+=1.5')
+    </code></pre>
+
+    <div class="sankou">
+        <p>gsap基本のデモサイト</p>
+        <ul>
+            <li>
+                <a href="http://un-tech.jp/tweenmax-started/">http://un-tech.jp/tweenmax-started/</a>
+            </li>
+            <li>
+                <a href="https://www.webprofessional.jp/greensock-beginners-part-2-gsaps-timeline/">https://www.webprofessional.jp/greensock-beginners-part-2-gsaps-timeline/</a>
+            </li>
+        </ul>
+    </div>
+<script type="text/javascript" src="/assets/js/bundle.js"></script>
+</body>
+</html>
