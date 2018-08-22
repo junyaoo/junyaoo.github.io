@@ -16,7 +16,7 @@ function display() {
     setTimeout(display, 50); // タイマーで定期的に display() を実行
 }
 $(function() {
-// var socket = new io.Socket(null, {port: 8080});
+var socket = new io.Socket(null, {port: 8080});
 
 socket.connect();
 // 受信ハンドラ

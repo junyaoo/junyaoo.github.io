@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            width: 1200px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+   <h1 style="border-bottom: 1px solid #888888">AMP（アンプ）について</h1>
+    <ul>
+        <li>「Accelerated Mobile Pages」の略 2015に発表し、2016に検索で表示され始めた</li>
+        <li>GoogleとTwitterで共同開発されているモバイルでのWebページの表示を高速化する手法、またはそのためのHTMLフレームワークのこと</li>
+        <li>3,100 万のドメインが AMP ドキュメントを発行</li>
+        <li>従来に比べ平均 4 倍の速度で表示</li>
+        <li>データ量も約 1/10 に抑えられるため、ほとんどのページが瞬時に表示さる</li>
+        <li>AMPでページの滞在時間は2倍</li>
+        <li>AMPでコンバージョンが2倍</li>
+        <li>いまはモバイルファースト・高速化重要</li>
+        <li>wordpressではプラグイン（AMP）があって簡単らしい</li>
+        <li>検索結果の上位表示がされる可能性が高くなる</li>
+        <li>スマホの検索結果のカルーセルパネルにサイトが表示される可能性</li>
+    </ul>
+    <img src="img/amp01.png" alt="">
+    <img src="img/amp02.png" alt="">
+     <p>参考：<a href="https://ferret-plus.com/4005" target="_blank">https://ferret-plus.com/4005</a></p>
+     <p>参考：<a href="https://liskul.com/amp-12753" target="_blank">https://liskul.com/amp-12753</a></p>
+     <p>参考：<a href="http://tech.vasily.jp/entry/amp" target="_blank">http://tech.vasily.jp/entry/amp</a></p>
+    <br>
+    <h2 style="border-bottom: 1px solid #888888">仕組み</h2>
+    <img src="img/amp_work.png" alt="">
+    <ul>
+        <li>Googleにインデックスされると、GoogleはそのAMPページをキャッシュする</li>
+        <li>Googleの検索結果などからAMPページにアクセスすると、すでにGoogleによってキャッシュされたWebページのデータが返される仕組みになっているので、通常のWebページよりも高速に表示できる</li>
+    </ul>
+    <br>
+    <h2 style="border-bottom: 1px solid #888888">デメリット</h2>
+    <ul>
+        <li>AMP では任意の JavaScript の利用が非常に厳しく制限されている。AMP JS以外のJavaScriptの動作を許容ない<br>
+        -JavaScriptの使用を制限することで、動画やアニメーションなどが瞬時にロードできるようにするため-</li>
+        <li>外部ファイルのCSSを読み込めない。CSSはすべてAMPページ内に記述する必要がある</li>
+        <li>htmlでできたページとAMPに準拠したページを二重に管理する必要がある</li>
+    </ul>
+    <p>禁止されているタグ</p>
+       <img src="img/notag.png" alt="">
+    <p>
+        ニュース記事やブログ記事、レシピなど静的なコンテンツに向いてる<br>
+    </p>
+    <br>
+    <h2 style="border-bottom: 1px solid #888888">記述方法</h2>
+    <p>&lt;html ⚡&gt;（&lt;html amp&gt; でも可）にする。</p>
+    <p>記述の仕方：<a href="https://www.ampproject.org/ja/docs/getting_started/create/basic_markup" target="_blank">https://www.ampproject.org/ja/docs/getting_started/create/basic_markup</a></p>
+    <br>
+    <h2 style="border-bottom: 1px solid #888888">デメリットはあるけど</h2>
+    <p>amp-bindというAMPのコンポーネントでダイナミックな動きができる</p>
+    <div style="display: flex; justify-content: space-around">
+        <img src="img/amp-bind01.gif" alt="">
+        <img src="img/amp-bind02.gif" alt="">
+        <img src="img/amp-bind03.gif" alt="">
+    </div>
+    <a href="https://www.suzukikenichi.com/blog/amp-bind-available-now/" target="_blank">https://www.suzukikenichi.com/blog/amp-bind-available-now/</a>
+    <br>
+    <h3>2018年　Web Worker を利用することで AMP での JS 実行を可能にかも。現在取り組んでるみたい</h3>
+    <br>
+    <h2 style="border-bottom: 1px solid #888888">Web Workerとは</h2>
+    <a href="https://www.suzukikenichi.com/blog/js-in-amp-with-web-worker/" target="_blank">https://www.suzukikenichi.com/blog/js-in-amp-with-web-worker/</a>
+    <p>HTML5で定義されているプロトコル。どんな処理でもマルチスレッド化。new Worker()でWorkerを生成</p>
+    <p>Web Worker とは、Web アプリケーションにおけるスクリプトの処理をメインとは別のスレッドに移し、バックグラウンドでの実行を可能にする仕組みのこと。時間のかかる処理を別のスレッドに移すことが出来るため、UI を担当するメインスレッドの処理を中断・遅延させずに実行できるという利点がある。</p>
+    <p>参考：<a href="http://cly7796.net/wp/javascript/try-using-web-worker/" target="_blank">http://cly7796.net/wp/javascript/try-using-web-worker/</a></p>
+    <p>参考：<a href="https://qiita.com/kenju/items/805fd3298a62cea4e98f" target="_blank">https://qiita.com/kenju/items/805fd3298a62cea4e98f</a></p>
+</body>
+</html>
